@@ -20,20 +20,22 @@ import { Input, TextField } from "@/_components/textfield";
 
 export default function InviteForm() {
   return (
-    <div className="flex w-full flex-col gap-4">
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-        <TextField>
-          <Label>Vorname</Label>
-          <Input placeholder="Gib deinen Vornamen ein" />
-        </TextField>
-        <TextField>
-          <Label>Nachname</Label>
-          <Input placeholder="Gib deinen Nachnamen ein" />
-        </TextField>
+    <div className="flex w-full flex-col gap-6">
+      <div className="flex flex-col gap-2">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+          <TextField>
+            <Label>Vorname</Label>
+            <Input placeholder="Gib deinen Vornamen ein" />
+          </TextField>
+          <TextField>
+            <Label>Nachname</Label>
+            <Input placeholder="Gib deinen Nachnamen ein" />
+          </TextField>
+        </div>
+        <Text className="text-muted-foreground text-sm">
+          Bitte gib für das Reitabzeichen deinen vollständigen Namen an.
+        </Text>
       </div>
-      <Text>
-        Bitte gib für das Reitabzeichen deinen vollständigen Namen an.
-      </Text>
       <Select placeholder="Wähle ein Reitabzeichen">
         <Label>Reitabzeichen</Label>
         <SelectTrigger>
@@ -66,12 +68,12 @@ export default function InviteForm() {
           <NumberFieldSteppers />
         </FieldGroup>
       </NumberField>
-      <fieldset className="flex flex-col gap-4">
+      <fieldset className="flex flex-col gap-6">
         <TextField>
           <Label>Adresse</Label>
           <Input placeholder="Gib deine Adresse ein" />
         </TextField>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
           <TextField>
             <Label>Postleitzahl</Label>
             <Input placeholder="Gib deine Postleitzahl ein" />

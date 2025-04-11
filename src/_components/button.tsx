@@ -9,7 +9,7 @@ import { tv } from "tailwind-variants";
 
 const buttonVariants = tv({
   base: [
-    "inline-flex items-center justify-center rounded-md text-sm font-medium whitespace-nowrap transition-colors",
+    "inline-flex items-center justify-center rounded-md text-base font-medium whitespace-nowrap transition-colors",
     /* Disabled */
     "data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
     /* Focus Visible */

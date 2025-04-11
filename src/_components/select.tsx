@@ -58,7 +58,7 @@ const SelectTrigger = ({ className, children, ...props }: AriaButtonProps) => (
   <AriaButton
     className={composeRenderProps(className, (className) =>
       cn(
-        "border-input flex h-9 w-full items-center justify-between rounded-md border bg-transparent px-3 py-2 text-sm whitespace-nowrap shadow-sm",
+        "border-input flex h-9 w-full items-center justify-between rounded-md border bg-transparent px-3 py-2 text-base whitespace-nowrap shadow-sm",
         /* Disabled */
         "data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50",
         /* Focused */
@@ -133,7 +133,7 @@ function JollySelect<T extends object>({
         <SelectValue />
       </SelectTrigger>
       {description && (
-        <Text className="text-muted-foreground text-sm" slot="description">
+        <Text className="text-muted-foreground text-base" slot="description">
           {description}
         </Text>
       )}

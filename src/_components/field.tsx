@@ -18,7 +18,7 @@ import { cn } from "@/_utils/cn";
 
 const labelVariants = tv({
   base: [
-    "text-sm leading-none font-medium",
+    "text-base leading-none font-medium",
     /* Disabled */
     "data-[disabled]:cursor-not-allowed data-[disabled]:opacity-70",
     /* Invalid */
@@ -53,7 +53,7 @@ const fieldGroupVariants = tv({
   variants: {
     variant: {
       default: [
-        "border-input relative flex h-9 w-full items-center overflow-hidden rounded-md border bg-transparent px-3 py-1 text-sm shadow-sm transition-colors",
+        "border-input relative flex h-9 w-full items-center overflow-hidden rounded-md border bg-transparent px-3 py-1 text-base shadow-sm transition-colors",
         /* Focus Within */
         "data-[focus-within]:ring-ring data-[focus-within]:ring-1 data-[focus-within]:outline-none",
         /* Disabled */

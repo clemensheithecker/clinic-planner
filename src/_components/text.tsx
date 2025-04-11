@@ -10,7 +10,7 @@ export function Text({
     <p
       data-slot="text"
       {...props}
-      className={clsx(className, "text-base/6 sm:text-sm/6")}
+      className={clsx(className, "text-base/6 sm:text-base/6")}
     />
   );
 }
@@ -46,7 +46,7 @@ export function Code({
       {...props}
       className={clsx(
         className,
-        "border-foreground/10 rounded-sm border bg-neutral-950/[2.5%] px-0.5 text-sm font-medium sm:text-[0.8125rem] dark:border-white/20 dark:bg-white/5",
+        "border-foreground/10 rounded-sm border bg-neutral-950/[2.5%] px-0.5 text-base font-medium sm:text-[0.8125rem] dark:border-white/20 dark:bg-white/5",
       )}
     />
   );

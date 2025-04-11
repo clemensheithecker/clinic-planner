@@ -29,7 +29,7 @@ function ListBox<T extends object>({
           className,
           "group bg-popover text-popover-foreground overflow-auto rounded-md border p-1 shadow-md outline-none",
           /* Empty */
-          "data-[empty]:p-6 data-[empty]:text-center data-[empty]:text-sm",
+          "data-[empty]:p-6 data-[empty]:text-center data-[empty]:text-base",
         ),
       )}
       {...props}
@@ -49,7 +49,7 @@ const ListBoxItem = <T extends object>({
       }
       className={composeRenderProps(className, (className) =>
         cn(
-          "relative flex w-full cursor-default items-center rounded-sm px-2 py-1.5 text-sm outline-none select-none",
+          "relative flex w-full cursor-default items-center rounded-sm px-2 py-1.5 text-base outline-none select-none",
           /* Disabled */
           "data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
           /* Focused */
@@ -83,7 +83,7 @@ function ListBoxHeader({
 }: React.ComponentProps<typeof AriaHeader>) {
   return (
     <AriaHeader
-      className={cn("px-2 py-1.5 text-sm font-semibold", className)}
+      className={cn("px-2 py-1.5 text-base font-semibold", className)}
       {...props}
     />
   );

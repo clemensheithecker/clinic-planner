@@ -19,7 +19,7 @@ const Input = ({ className, ...props }: AriaInputProps) => {
     <AriaInput
       className={composeRenderProps(className, (className) =>
         cn(
-          "border-input placeholder:text-muted-foreground flex h-9 w-full rounded-md border bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium",
+          "border-input placeholder:text-muted-foreground flex h-9 w-full rounded-md border bg-transparent px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-base file:font-medium",
           /* Disabled */
           "data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50",
           /* Focused */
@@ -39,7 +39,7 @@ const TextArea = ({ className, ...props }: AriaTextAreaProps) => {
     <AriaTextArea
       className={composeRenderProps(className, (className) =>
         cn(
-          "border-input bg-background ring-offset-background placeholder:text-muted-foreground flex min-h-[80px] w-full rounded-md border px-3 py-2 text-sm",
+          "border-input bg-background ring-offset-background placeholder:text-muted-foreground flex min-h-[80px] w-full rounded-md border px-3 py-2 text-base",
           /* Focused */
           "data-[focused]:ring-ring data-[focused]:ring-2 data-[focused]:ring-offset-2 data-[focused]:outline-none",
           /* Disabled */
