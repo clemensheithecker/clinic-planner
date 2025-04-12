@@ -9,7 +9,7 @@
   --background: var(--color-white);
   --border: var(--color-neutral-200);
   --destructive: var(--color-red-600);
-  --destructive-foreground: var(--color-red-600);
+  --destructive-foreground: var(--color-red-50);
   --foreground: var(--color-neutral-950);
   --input: var(--color-neutral-200);
   --muted-foreground: var(--color-neutral-500);

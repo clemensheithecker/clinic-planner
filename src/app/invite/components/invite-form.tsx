@@ -5,13 +5,9 @@ import {
   ControlledSelect,
   ControlledTextField,
 } from "@/_components/form-fields";
+import { ControlledDateField } from "@/_components/form-fields/ControlledDateField";
 import { Button, Form, SelectItem, Text } from "@/_components/ui";
-import {
-  MAX_AGE,
-  MAX_WEIGHT_IN_KG,
-  MIN_AGE,
-  MIN_WEIGHT_IN_KG,
-} from "@/shared/constants";
+import { MAX_WEIGHT_IN_KG, MIN_WEIGHT_IN_KG } from "@/shared/constants";
 
 import { RIDING_BADGES } from "../_constants";
 import { useInviteForm } from "../_hooks";
@@ -55,13 +51,10 @@ export default function InviteForm() {
         {(item) => <SelectItem id={item[0]}>{item[1].label}</SelectItem>}
       </ControlledSelect>
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-        <ControlledNumberField
+        <ControlledDateField
           control={control}
-          inputProps={{ placeholder: "Gib dein Alter ein" }}
-          label="Alter"
-          maxValue={MAX_AGE}
-          minValue={MIN_AGE}
-          name="age"
+          label="Geburtsdatum"
+          name="bornAt"
         />
         <ControlledNumberField
           control={control}

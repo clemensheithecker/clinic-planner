@@ -1,11 +1,9 @@
 import { z } from "zod";
 
 import {
-  MAX_AGE,
   MAX_LONG_NAME_LENGTH,
   MAX_NAME_LENGTH,
   MAX_WEIGHT_IN_KG,
-  MIN_AGE,
   MIN_NAME_LENGTH,
   MIN_WEIGHT_IN_KG,
 } from "@/shared/constants";
@@ -44,13 +42,13 @@ export const acceptClinicInvitationSchema = z.object({
       })
       .regex(/^\d{5}$/, "Postleitzahl muss 5 Ziffern lang sein"),
   }),
-  age: z
-    .number({
-      invalid_type_error: "Alter muss eine Zahl sein",
-      required_error: "Alter ist erforderlich",
+  bornAt: z
+    .date({
+      invalid_type_error: "Geburtsdatum muss ein gültiges Datum sein",
+      required_error: "Geburtsdatum ist erforderlich",
     })
-    .min(MIN_AGE, `Alter muss mindestens ${MIN_AGE} Jahre sein`)
-    .max(MAX_AGE, `Alter darf maximal ${MAX_AGE} Jahre sein`),
+    .min(new Date("1920-01-01"), "Geburtsdatum darf nicht vor 1920 sein")
+    .max(new Date(), "Geburtsdatum darf nicht in der Zukunft liegen"),
   firstName: z
     .string({
       required_error: "Vorname ist erforderlich",

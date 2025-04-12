@@ -18,7 +18,7 @@ export const acceptClinicInvitationProcedure = publicProcedure
 
     await RIDER_MUTATION_REPOSITORY.createOne({
       addressLine1: payload.address.line1,
-      bornAt: new Date(),
+      bornAt: payload.bornAt,
       city: payload.address.city,
       firstName: payload.firstName,
       lastName: payload.lastName,
