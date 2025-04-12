@@ -13,8 +13,8 @@ import {
   MIN_WEIGHT_IN_KG,
 } from "@/shared/constants";
 
-import { RIDING_BADGES } from "./_constants";
-import { useInviteForm } from "./_hooks";
+import { RIDING_BADGES } from "../_constants";
+import { useInviteForm } from "../_hooks";
 
 export default function InviteForm() {
   const { form, onSubmit } = useInviteForm();

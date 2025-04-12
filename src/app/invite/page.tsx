@@ -1,6 +1,6 @@
 import { Heading, Text } from "@/_components/ui";
 
-import InviteForm from "./InviteForm";
+import InviteForm from "./components/invite-form";
 
 const ORGANIZATION_NAME = "Reitsportkonzepte Völker";
 

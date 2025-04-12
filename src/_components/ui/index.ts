@@ -7,5 +7,6 @@ export * from "./list-box";
 export * from "./numberfield";
 export * from "./popover";
 export * from "./select";
+export * from "./table";
 export * from "./text";
 export * from "./text-field";
