@@ -11,9 +11,6 @@
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "deno.enablePaths": ["supabase/functions"],
-  "deno.lint": true,
-  "deno.unstable": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "always"
   },
