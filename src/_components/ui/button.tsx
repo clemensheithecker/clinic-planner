@@ -1,3 +1,5 @@
+"use client";
+
 import { forwardRef } from "react";
 import type { ButtonProps as AriaButtonProps } from "react-aria-components";
 import {

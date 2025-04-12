@@ -1,5 +1,4 @@
-import { Heading } from "@/_components/heading";
-import { Text } from "@/_components/text";
+import { Heading, Text } from "@/_components/ui";
 
 import InviteForm from "./InviteForm";
 

@@ -1,3 +1,5 @@
+"use client";
+
 import type {
   FieldErrorProps as AriaFieldErrorProps,
   GroupProps as AriaGroupProps,

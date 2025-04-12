@@ -1,3 +1,5 @@
+"use client";
+
 import { ChevronUpDownIcon } from "@heroicons/react/16/solid";
 import { forwardRef } from "react";
 import type {

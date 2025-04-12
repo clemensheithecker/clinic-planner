@@ -1,14 +1,11 @@
 "use client";
 
-import { Button } from "@/_components/button";
-import { Form } from "@/_components/form";
 import {
   ControlledNumberField,
   ControlledSelect,
   ControlledTextField,
-} from "@/_components/formFields";
-import { SelectItem } from "@/_components/select";
-import { Text } from "@/_components/text";
+} from "@/_components/form-fields";
+import { Button, Form, SelectItem, Text } from "@/_components/ui";
 import {
   MAX_AGE,
   MAX_WEIGHT_IN_KG,

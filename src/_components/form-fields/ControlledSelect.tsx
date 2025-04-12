@@ -1,15 +1,16 @@
 import type { FieldValues, UseControllerProps } from "react-hook-form";
 import { useController } from "react-hook-form";
 
-import { FieldError, Label } from "../field";
-import type { SelectProps } from "../select";
+import type { SelectProps } from "@/_components/ui";
 import {
+  FieldError,
+  Label,
   Select,
   SelectListBox,
   SelectPopover,
   SelectTrigger,
   SelectValue,
-} from "../select";
+} from "@/_components/ui";
 
 type ControlledSelectProps<
   TFieldValues extends FieldValues,

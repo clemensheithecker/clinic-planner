@@ -1,9 +1,8 @@
 import type { FieldValues, UseControllerProps } from "react-hook-form";
 import { useController } from "react-hook-form";
 
-import { FieldError, Label } from "../field";
-import type { InputProps, TextFieldProps } from "../text-field";
-import { Input, TextField } from "../text-field";
+import type { InputProps, TextFieldProps } from "@/_components/ui";
+import { FieldError, Input, Label, TextField } from "@/_components/ui";
 
 type ControlledTextFieldProps<TFieldValues extends FieldValues> = Omit<
   UseControllerProps<TFieldValues>,

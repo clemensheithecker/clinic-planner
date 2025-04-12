@@ -1,13 +1,15 @@
 import type { FieldValues, UseControllerProps } from "react-hook-form";
 import { useController } from "react-hook-form";
 
-import { FieldError, FieldGroup, Label } from "../field";
-import type { NumberFieldInputProps, NumberFieldProps } from "../numberfield";
+import type { NumberFieldInputProps, NumberFieldProps } from "@/_components/ui";
 import {
+  FieldError,
+  FieldGroup,
+  Label,
   NumberField,
   NumberFieldInput,
   NumberFieldSteppers,
-} from "../numberfield";
+} from "@/_components/ui";
 
 type ControlledNumberFieldProps<TFieldValues extends FieldValues> = Omit<
   UseControllerProps<TFieldValues>,
