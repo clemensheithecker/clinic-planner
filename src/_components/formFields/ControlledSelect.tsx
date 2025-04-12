@@ -50,8 +50,6 @@ export const ControlledSelect = <
     rules,
   });
 
-  console.log("field ref", field.ref);
-
   return (
     <Select
       {...selectProps}

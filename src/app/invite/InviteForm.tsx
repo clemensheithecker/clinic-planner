@@ -9,20 +9,20 @@ import {
 } from "@/_components/formFields";
 import { SelectItem } from "@/_components/select";
 import { Text } from "@/_components/text";
-
 import {
   MAX_AGE,
   MAX_WEIGHT_IN_KG,
   MIN_AGE,
   MIN_WEIGHT_IN_KG,
-  RIDING_BADGES,
-} from "./_constants";
+} from "@/shared/constants";
+
+import { RIDING_BADGES } from "./_constants";
 import { useInviteForm } from "./_hooks";
 
 export default function InviteForm() {
   const { form, onSubmit } = useInviteForm();
 
-  const { control, handleSubmit } = form;
+  const { control, handleSubmit, formState } = form;
 
   return (
     <Form
@@ -101,7 +101,9 @@ export default function InviteForm() {
         label="Reitverein"
         name="ridingClub"
       />
-      <Button type="submit">Anmelden</Button>
+      <Button type="submit" isDisabled={formState.isSubmitting}>
+        Anmelden
+      </Button>
     </Form>
   );
 }

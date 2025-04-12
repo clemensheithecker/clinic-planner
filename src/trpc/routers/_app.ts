@@ -1,9 +1,11 @@
 import { z } from "zod";
 
-import { baseProcedure, createTRPCRouter } from "../init";
+import { createTRPCRouter } from "../init";
+import { publicProcedure } from "../procedures";
+import { invitationsRouter } from "./invitationsRouter";
 
 export const appRouter = createTRPCRouter({
-  hello: baseProcedure
+  hello: publicProcedure
     .input(
       z.object({
         text: z.string(),
@@ -14,6 +16,7 @@ export const appRouter = createTRPCRouter({
         greeting: `hello ${opts.input.text}`,
       };
     }),
+  invitations: invitationsRouter,
 });
 
 export type AppRouter = typeof appRouter;

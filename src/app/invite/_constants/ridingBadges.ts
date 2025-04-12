@@ -1,6 +1,6 @@
 import type { z } from "zod";
 
-import type { ridingBadgeSchema } from "../_schemas";
+import type { ridingBadgeSchema } from "@/shared/schemas";
 
 type RidingBadge = z.infer<typeof ridingBadgeSchema>;
 
