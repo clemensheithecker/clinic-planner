@@ -1,4 +1,5 @@
 import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/16/solid";
+import { forwardRef } from "react";
 import type {
   ButtonProps as AriaButtonProps,
   InputProps as AriaInputProps,
@@ -15,17 +16,24 @@ import { cn } from "@/_utils/cn";
 
 import { Button } from "./button";
 
-const NumberFieldInput = ({ className, ...props }: AriaInputProps) => (
-  <AriaInput
-    className={composeRenderProps(className, (className) =>
-      cn(
-        "bg-background placeholder:text-muted-foreground w-fit min-w-0 flex-1 border-r border-transparent pr-2 outline-none [&::-webkit-search-cancel-button]:hidden",
-        className,
-      ),
-    )}
-    {...props}
-  />
+type NumberFieldInputProps = AriaInputProps;
+
+const NumberFieldInput = forwardRef<HTMLInputElement, NumberFieldInputProps>(
+  ({ className, ...props }, ref) => (
+    <AriaInput
+      ref={ref}
+      className={composeRenderProps(className, (className) =>
+        cn(
+          "bg-background placeholder:text-muted-foreground w-fit min-w-0 flex-1 border-r border-transparent pr-2 outline-none [&::-webkit-search-cancel-button]:hidden",
+          className,
+        ),
+      )}
+      {...props}
+    />
+  ),
 );
+
+NumberFieldInput.displayName = "NumberFieldInput";
 
 const NumberFieldSteppers = ({
   className,
@@ -79,3 +87,4 @@ export {
   NumberFieldStepper,
   NumberFieldSteppers,
 };
+export type { NumberFieldInputProps, NumberFieldProps };

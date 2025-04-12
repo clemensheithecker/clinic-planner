@@ -1,94 +1,107 @@
 "use client";
 
 import { Button } from "@/_components/button";
-import { FieldGroup, Label } from "@/_components/field";
+import { Form } from "@/_components/form";
 import {
-  NumberField,
-  NumberFieldInput,
-  NumberFieldSteppers,
-} from "@/_components/numberfield";
-import {
-  Select,
-  SelectItem,
-  SelectListBox,
-  SelectPopover,
-  SelectTrigger,
-  SelectValue,
-} from "@/_components/select";
+  ControlledNumberField,
+  ControlledSelect,
+  ControlledTextField,
+} from "@/_components/formFields";
+import { SelectItem } from "@/_components/select";
 import { Text } from "@/_components/text";
-import { Input, TextField } from "@/_components/textfield";
+
+import {
+  MAX_AGE,
+  MAX_WEIGHT_IN_KG,
+  MIN_AGE,
+  MIN_WEIGHT_IN_KG,
+  RIDING_BADGES,
+} from "./_constants";
+import { useInviteForm } from "./_hooks";
 
 export default function InviteForm() {
+  const { form, onSubmit } = useInviteForm();
+
+  const { control, handleSubmit } = form;
+
   return (
-    <div className="flex w-full flex-col gap-6">
+    <Form
+      onSubmit={handleSubmit(onSubmit)}
+      className="flex w-full flex-col gap-6"
+    >
       <div className="flex flex-col gap-2">
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-          <TextField>
-            <Label>Vorname</Label>
-            <Input placeholder="Gib deinen Vornamen ein" />
-          </TextField>
-          <TextField>
-            <Label>Nachname</Label>
-            <Input placeholder="Gib deinen Nachnamen ein" />
-          </TextField>
+          <ControlledTextField
+            control={control}
+            inputProps={{ placeholder: "Gib deinen Vorname ein" }}
+            label="Vorname"
+            name="firstName"
+          />
+          <ControlledTextField
+            control={control}
+            inputProps={{ placeholder: "Gib deinen Nachnamen ein" }}
+            label="Nachname"
+            name="lastName"
+          />
         </div>
         <Text className="text-muted-foreground text-sm">
           Bitte gib für das Reitabzeichen deinen vollständigen Namen an.
         </Text>
       </div>
-      <Select placeholder="Wähle ein Reitabzeichen">
-        <Label>Reitabzeichen</Label>
-        <SelectTrigger>
-          <SelectValue />
-        </SelectTrigger>
-        <SelectPopover>
-          <SelectListBox>
-            <SelectItem>Reitabzeichen 10</SelectItem>
-            <SelectItem>Reitabzeichen 9</SelectItem>
-            <SelectItem>Reitabzeichen 8</SelectItem>
-            <SelectItem>Reitabzeichen 7</SelectItem>
-            <SelectItem>Reitabzeichen 6</SelectItem>
-            <SelectItem>Reitabzeichen 5</SelectItem>
-            <SelectItem>Reitabzeichen 4</SelectItem>
-            <SelectItem>Reitabzeichen 3</SelectItem>
-          </SelectListBox>
-        </SelectPopover>
-      </Select>
-      <NumberField maxValue={100} minValue={3}>
-        <Label>Alter</Label>
-        <FieldGroup>
-          <NumberFieldInput placeholder="Gib dein Alter ein" />
-          <NumberFieldSteppers />
-        </FieldGroup>
-      </NumberField>
-      <NumberField maxValue={120} minValue={20}>
-        <Label>Gewicht in kg</Label>
-        <FieldGroup>
-          <NumberFieldInput placeholder="Gib dein Gewicht ein" />
-          <NumberFieldSteppers />
-        </FieldGroup>
-      </NumberField>
+      <ControlledSelect
+        control={control}
+        name="ridingBadge"
+        placeholder="Wähle ein Reitabzeichen"
+        label="Reitabzeichen"
+        items={Object.entries(RIDING_BADGES)}
+      >
+        {(item) => <SelectItem id={item[0]}>{item[1].label}</SelectItem>}
+      </ControlledSelect>
+      <ControlledNumberField
+        control={control}
+        inputProps={{ placeholder: "Gib dein Alter ein" }}
+        label="Alter"
+        maxValue={MAX_AGE}
+        minValue={MIN_AGE}
+        name="age"
+      />
+      <ControlledNumberField
+        control={control}
+        inputProps={{ placeholder: "Gib dein Gewicht in kg ein" }}
+        label="Gewicht in kg"
+        maxValue={MAX_WEIGHT_IN_KG}
+        minValue={MIN_WEIGHT_IN_KG}
+        name="weightInKg"
+      />
       <fieldset className="flex flex-col gap-6">
-        <TextField>
-          <Label>Adresse</Label>
-          <Input placeholder="Gib deine Adresse ein" />
-        </TextField>
+        <ControlledTextField
+          control={control}
+          inputProps={{ placeholder: "Gib deine Adresse ein" }}
+          label="Adresse"
+          name="address.line1"
+        />
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-          <TextField>
-            <Label>Postleitzahl</Label>
-            <Input placeholder="Gib deine Postleitzahl ein" />
-          </TextField>
-          <TextField>
-            <Label>Ort</Label>
-            <Input placeholder="Gib deinen Wohnort ein" />
-          </TextField>
+          <ControlledTextField
+            control={control}
+            inputProps={{ placeholder: "Gib deine Postleitzahl ein" }}
+            label="Postleitzahl"
+            name="address.postalCode"
+          />
+          <ControlledTextField
+            control={control}
+            inputProps={{ placeholder: "Gib deinen Wohnort ein" }}
+            label="Ort"
+            name="address.city"
+          />
         </div>
       </fieldset>
-      <TextField>
-        <Label>Reitverein</Label>
-        <Input placeholder="Gib deinen Reitverein ein" />
-      </TextField>
-      <Button>Anmelden</Button>
-    </div>
+      <ControlledTextField
+        control={control}
+        inputProps={{ placeholder: "Gib deinen Reitverein ein" }}
+        label="Reitverein"
+        name="ridingClub"
+      />
+      <Button type="submit">Anmelden</Button>
+    </Form>
   );
 }

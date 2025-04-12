@@ -1,4 +1,5 @@
 import { ChevronUpDownIcon } from "@heroicons/react/16/solid";
+import { forwardRef } from "react";
 import type {
   ButtonProps as AriaButtonProps,
   ListBoxProps as AriaListBoxProps,
@@ -27,7 +28,17 @@ import {
 } from "./list-box";
 import { Popover } from "./popover";
 
-const Select = AriaSelect;
+const Select = <T extends object>({
+  className,
+  ...props
+}: AriaSelectProps<T>) => (
+  <AriaSelect
+    className={composeRenderProps(className, (className) =>
+      cn("group flex flex-col gap-2", className),
+    )}
+    {...props}
+  />
+);
 
 const SelectItem = ListBoxItem;
 
@@ -54,35 +65,40 @@ const SelectValue = <T extends object>({
   />
 );
 
-const SelectTrigger = ({ className, children, ...props }: AriaButtonProps) => (
-  <AriaButton
-    className={composeRenderProps(className, (className) =>
-      cn(
-        "border-input flex h-9 w-full items-center justify-between rounded-md border bg-transparent px-3 py-2 text-base whitespace-nowrap shadow-sm",
-        /* Disabled */
-        "data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50",
-        /* Focused */
-        "data-[focus-visible]:ring-ring data-[focus-visible]:ring-1 data-[focus-visible]:outline-none",
-        /* Resets */
-        "focus-visible:outline-none",
-        className,
-      ),
-    )}
-    {...props}
-  >
-    {composeRenderProps(children, (children) => (
-      <>
-        {children}
-        <ChevronUpDownIcon aria-hidden="true" className="size-4 opacity-50" />
-      </>
-    ))}
-  </AriaButton>
+const SelectTrigger = forwardRef<HTMLButtonElement, AriaButtonProps>(
+  ({ className, children, ...props }, ref) => (
+    <AriaButton
+      ref={ref}
+      className={composeRenderProps(className, (className) =>
+        cn(
+          "border-input flex h-9 w-full items-center justify-between rounded-md border bg-transparent px-3 py-2 text-base whitespace-nowrap shadow-sm",
+          /* Disabled */
+          "disabled:cursor-not-allowed disabled:opacity-50",
+          /* Focused */
+          "focus:ring-ring focus:ring-1 focus:outline-none",
+          /* Resets */
+          "focus-visible:outline-none",
+          className,
+        ),
+      )}
+      {...props}
+    >
+      {composeRenderProps(children, (children) => (
+        <>
+          {children}
+          <ChevronUpDownIcon aria-hidden="true" className="size-4 opacity-50" />
+        </>
+      ))}
+    </AriaButton>
+  ),
 );
+
+SelectTrigger.displayName = "SelectTrigger";
 
 const SelectPopover = ({ className, ...props }: AriaPopoverProps) => (
   <Popover
     className={composeRenderProps(className, (className) =>
-      cn("w-[--trigger-width]", className),
+      cn("w-[var(--trigger-width)]", className),
     )}
     {...props}
   />
@@ -155,4 +171,4 @@ export {
   SelectTrigger,
   SelectValue,
 };
-export type { JollySelectProps };
+export type { JollySelectProps, AriaSelectProps as SelectProps };

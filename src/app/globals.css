@@ -1,6 +1,8 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+@plugin "tailwindcss-react-aria-components";
+
 :root {
   --accent: var(--color-neutral-100);
   --accent-foreground: var(--color-neutral-900);

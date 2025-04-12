@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import { forwardRef } from "react";
 import type { ButtonProps as AriaButtonProps } from "react-aria-components";
 import {
   Button as AriaButton,

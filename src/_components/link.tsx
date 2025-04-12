@@ -6,7 +6,7 @@
  * https://catalyst.tailwindui.com/docs#client-side-router-integration
  */
 
-import React, { forwardRef } from "react";
+import { forwardRef } from "react";
 
 export const Link = forwardRef(
   (
