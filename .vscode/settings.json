@@ -1,15 +1,4 @@
 {
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "always"
-  },
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": true,
-  "editor.wordWrap": "on",
-  "prettier.configPath": "prettier.config.mjs",
-  "prettier.enable": true,
-  "tailwindCSS.experimental.classRegex": [
-    ["([\"'`][^\"'`]*.*?[\"'`])", "[\"'`]([^\"'`]*).*?[\"'`]"]
-  ],
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -21,5 +10,19 @@
   },
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "deno.enablePaths": ["supabase/functions"],
+  "deno.lint": true,
+  "deno.unstable": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "always"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.wordWrap": "on",
+  "prettier.configPath": "prettier.config.mjs",
+  "prettier.enable": true,
+  "tailwindCSS.experimental.classRegex": [
+    ["([\"'`][^\"'`]*.*?[\"'`])", "[\"'`]([^\"'`]*).*?[\"'`]"]
+  ]
 }

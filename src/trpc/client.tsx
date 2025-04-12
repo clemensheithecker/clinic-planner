@@ -30,12 +30,13 @@ const getQueryClient = () => {
 };
 
 const getUrl = () => {
-  const base = (() => {
-    if (typeof window !== "undefined") return "";
-    if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`;
-    return `http://localhost:${process.env.PORT || FALLBACK_PORT}`;
-  })();
-  return `${base}/api/trpc`;
+  if (typeof window !== "undefined") {
+    return `${window.location.origin}/api/trpc`;
+  }
+  if (process.env.VERCEL_URL) {
+    return `https://${process.env.VERCEL_URL}/api/trpc`;
+  }
+  return `http://localhost:${process.env.PORT || FALLBACK_PORT}/api/trpc`;
 };
 
 export const TRPCReactProvider = (

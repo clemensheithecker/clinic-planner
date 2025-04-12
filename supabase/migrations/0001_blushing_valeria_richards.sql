@@ -1,0 +1,1 @@
+ALTER TABLE "rider_table" RENAME TO "riders_table";

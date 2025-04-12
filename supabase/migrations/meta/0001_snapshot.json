@@ -1,0 +1,80 @@
+{
+  "id": "486d6052-e169-41d0-839f-58c085a26dc4",
+  "prevId": "8fb7b313-07a2-4bd9-83f1-8b3237bd08e3",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public.riders_table": {
+      "name": "riders_table",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "address_line_1": {
+          "name": "address_line_1",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "born_at": {
+          "name": "born_at",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "city": {
+          "name": "city",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "first_name": {
+          "name": "first_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "last_name": {
+          "name": "last_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "postal_code": {
+          "name": "postal_code",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "weight_in_kg": {
+          "name": "weight_in_kg",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "sequences": {},
+  "roles": {},
+  "policies": {},
+  "views": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}
