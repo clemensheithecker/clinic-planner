@@ -57,22 +57,24 @@ export default function InviteForm() {
       >
         {(item) => <SelectItem id={item[0]}>{item[1].label}</SelectItem>}
       </ControlledSelect>
-      <ControlledNumberField
-        control={control}
-        inputProps={{ placeholder: "Gib dein Alter ein" }}
-        label="Alter"
-        maxValue={MAX_AGE}
-        minValue={MIN_AGE}
-        name="age"
-      />
-      <ControlledNumberField
-        control={control}
-        inputProps={{ placeholder: "Gib dein Gewicht in kg ein" }}
-        label="Gewicht in kg"
-        maxValue={MAX_WEIGHT_IN_KG}
-        minValue={MIN_WEIGHT_IN_KG}
-        name="weightInKg"
-      />
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+        <ControlledNumberField
+          control={control}
+          inputProps={{ placeholder: "Gib dein Alter ein" }}
+          label="Alter"
+          maxValue={MAX_AGE}
+          minValue={MIN_AGE}
+          name="age"
+        />
+        <ControlledNumberField
+          control={control}
+          inputProps={{ placeholder: "Gib dein Gewicht in kg ein" }}
+          label="Gewicht in kg"
+          maxValue={MAX_WEIGHT_IN_KG}
+          minValue={MIN_WEIGHT_IN_KG}
+          name="weightInKg"
+        />
+      </div>
       <fieldset className="flex flex-col gap-6">
         <ControlledTextField
           control={control}
