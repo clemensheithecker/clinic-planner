@@ -1,4 +1,5 @@
 import { FlatCompat } from "@eslint/eslintrc";
+import preferArrowFunctions from "eslint-plugin-prefer-arrow-functions";
 import simpleImportSort from "eslint-plugin-simple-import-sort";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
@@ -19,13 +20,26 @@ const eslintConfig = [
   ),
   {
     plugins: {
+      "prefer-arrow-functions": preferArrowFunctions,
       "simple-import-sort": simpleImportSort,
     },
     rules: {
       "@typescript-eslint/consistent-type-imports": "error",
+      "import/consistent-type-specifier-style": ["error", "prefer-top-level"],
+      "prefer-arrow-functions/prefer-arrow-functions": [
+        "warn",
+        {
+          allowedNames: [],
+          allowNamedFunctions: false,
+          allowObjectProperties: false,
+          classPropertiesAllowed: false,
+          disallowPrototype: false,
+          returnStyle: "unchanged",
+          singleReturnOnly: false,
+        },
+      ],
       "simple-import-sort/exports": "error",
       "simple-import-sort/imports": "error",
-      "import/consistent-type-specifier-style": ["error", "prefer-top-level"],
     },
   },
 ];

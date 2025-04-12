@@ -18,24 +18,22 @@ const ListBoxSection = AriaSection;
 
 const ListBoxCollection = AriaCollection;
 
-function ListBox<T extends object>({
+const ListBox = <T extends object>({
   className,
   ...props
-}: AriaListBoxProps<T>) {
-  return (
-    <AriaListBox
-      className={composeRenderProps(className, (className) =>
-        cn(
-          className,
-          "group bg-popover text-popover-foreground overflow-auto rounded-md border p-1 shadow-md outline-none",
-          /* Empty */
-          "data-[empty]:p-6 data-[empty]:text-center data-[empty]:text-base",
-        ),
-      )}
-      {...props}
-    />
-  );
-}
+}: AriaListBoxProps<T>) => (
+  <AriaListBox
+    className={composeRenderProps(className, (className) =>
+      cn(
+        className,
+        "group bg-popover text-popover-foreground overflow-auto rounded-md border p-1 shadow-md outline-none",
+        /* Empty */
+        "data-[empty]:p-6 data-[empty]:text-center data-[empty]:text-base",
+      ),
+    )}
+    {...props}
+  />
+);
 
 const ListBoxItem = <T extends object>({
   className,
@@ -77,17 +75,15 @@ const ListBoxItem = <T extends object>({
   );
 };
 
-function ListBoxHeader({
+const ListBoxHeader = ({
   className,
   ...props
-}: React.ComponentProps<typeof AriaHeader>) {
-  return (
-    <AriaHeader
-      className={cn("px-2 py-1.5 text-base font-semibold", className)}
-      {...props}
-    />
-  );
-}
+}: React.ComponentProps<typeof AriaHeader>) => (
+  <AriaHeader
+    className={cn("px-2 py-1.5 text-base font-semibold", className)}
+    {...props}
+  />
+);
 
 export {
   ListBox,

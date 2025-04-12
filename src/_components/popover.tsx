@@ -33,10 +33,8 @@ const Popover = ({ className, offset = 4, ...props }: AriaPopoverProps) => (
   />
 );
 
-function PopoverDialog({ className, ...props }: AriaDialogProps) {
-  return (
-    <AriaDialog className={cn("p-4 outline-none", className)} {...props} />
-  );
-}
+const PopoverDialog = ({ className, ...props }: AriaDialogProps) => (
+  <AriaDialog className={cn("p-4 outline-none", className)} {...props} />
+);
 
 export { Popover, PopoverDialog, PopoverTrigger };

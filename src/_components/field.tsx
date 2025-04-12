@@ -30,24 +30,20 @@ const Label = ({ className, ...props }: AriaLabelProps) => (
   <AriaLabel className={labelVariants({ className })} {...props} />
 );
 
-function FormDescription({ className, ...props }: AriaTextProps) {
-  return (
-    <AriaText
-      className={cn("text-muted-foreground text-[0.8rem]", className)}
-      {...props}
-      slot="description"
-    />
-  );
-}
+const FormDescription = ({ className, ...props }: AriaTextProps) => (
+  <AriaText
+    className={cn("text-muted-foreground text-[0.8rem]", className)}
+    {...props}
+    slot="description"
+  />
+);
 
-function FieldError({ className, ...props }: AriaFieldErrorProps) {
-  return (
-    <AriaFieldError
-      className={cn("text-destructive text-[0.8rem] font-medium", className)}
-      {...props}
-    />
-  );
-}
+const FieldError = ({ className, ...props }: AriaFieldErrorProps) => (
+  <AriaFieldError
+    className={cn("text-destructive text-[0.8rem] font-medium", className)}
+    {...props}
+  />
+);
 
 const fieldGroupVariants = tv({
   variants: {
@@ -71,16 +67,14 @@ interface GroupProps
   extends AriaGroupProps,
     VariantProps<typeof fieldGroupVariants> {}
 
-function FieldGroup({ className, variant, ...props }: GroupProps) {
-  return (
-    <AriaGroup
-      className={composeRenderProps(className, (className) =>
-        cn(fieldGroupVariants({ variant }), className),
-      )}
-      {...props}
-    />
-  );
-}
+const FieldGroup = ({ className, variant, ...props }: GroupProps) => (
+  <AriaGroup
+    className={composeRenderProps(className, (className) =>
+      cn(fieldGroupVariants({ variant }), className),
+    )}
+    {...props}
+  />
+);
 
 export {
   FieldError,

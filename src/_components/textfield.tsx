@@ -61,17 +61,15 @@ interface TextFieldProps extends AriaTextFieldProps {
   textArea?: boolean;
 }
 
-function TextField({ children, className, ...props }: TextFieldProps) {
-  return (
-    <AriaTextField
-      className={composeRenderProps(className, (className) =>
-        cn("group flex flex-col gap-2", className),
-      )}
-      {...props}
-    >
-      {children}
-    </AriaTextField>
-  );
-}
+const TextField = ({ children, className, ...props }: TextFieldProps) => (
+  <AriaTextField
+    className={composeRenderProps(className, (className) =>
+      cn("group flex flex-col gap-2", className),
+    )}
+    {...props}
+  >
+    {children}
+  </AriaTextField>
+);
 
 export { Input, TextArea, TextField };

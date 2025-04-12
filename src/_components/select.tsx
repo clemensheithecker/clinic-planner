@@ -112,7 +112,7 @@ interface JollySelectProps<T extends object>
   children: React.ReactNode | ((item: T) => React.ReactNode);
 }
 
-function JollySelect<T extends object>({
+const JollySelect = <T extends object>({
   label,
   description,
   errorMessage,
@@ -120,30 +120,28 @@ function JollySelect<T extends object>({
   className,
   items,
   ...props
-}: JollySelectProps<T>) {
-  return (
-    <Select
-      className={composeRenderProps(className, (className) =>
-        cn("group flex flex-col gap-2", className),
-      )}
-      {...props}
-    >
-      <Label>{label}</Label>
-      <SelectTrigger>
-        <SelectValue />
-      </SelectTrigger>
-      {description && (
-        <Text className="text-muted-foreground text-base" slot="description">
-          {description}
-        </Text>
-      )}
-      <FieldError>{errorMessage}</FieldError>
-      <SelectPopover>
-        <SelectListBox items={items}>{children}</SelectListBox>
-      </SelectPopover>
-    </Select>
-  );
-}
+}: JollySelectProps<T>) => (
+  <Select
+    className={composeRenderProps(className, (className) =>
+      cn("group flex flex-col gap-2", className),
+    )}
+    {...props}
+  >
+    <Label>{label}</Label>
+    <SelectTrigger>
+      <SelectValue />
+    </SelectTrigger>
+    {description && (
+      <Text className="text-muted-foreground text-base" slot="description">
+        {description}
+      </Text>
+    )}
+    <FieldError>{errorMessage}</FieldError>
+    <SelectPopover>
+      <SelectListBox items={items}>{children}</SelectListBox>
+    </SelectPopover>
+  </Select>
+);
 
 export {
   JollySelect,
