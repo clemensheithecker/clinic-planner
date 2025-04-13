@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { PlusIcon } from "@heroicons/react/16/solid";
 import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
 import { Suspense } from "react";
